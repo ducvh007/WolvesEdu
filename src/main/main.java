@@ -1784,7 +1784,7 @@ public class main extends javax.swing.JFrame {
         tblQLNguoiHoc.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         tblQLNguoiHoc.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"PC01234", "Nguyễn Văn Chính", "Nam", "12/12/2004", "0987987987", "chinhnvpc01234@fpt.edu.vn", "Cần Thơ", "...", "", "NV01", "01/06/2021"},
+                {"PC01234", "Nguyễn Văn Chính", "Nam", "12/12/2004", "0987987987", "chinhnvpc01234@fpt.edu.vn", "Cần Thơ", "...", "...", "NV01", "01/06/2021"},
                 {"...", "...", "...", "...", "...", "...", "...", "...", "...", "...", "..."}
             },
             new String [] {
@@ -1951,7 +1951,7 @@ public class main extends javax.swing.JFrame {
                         .addComponent(lblQLHocVien_KhoaHoc, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cboQLHocVien_KhoaHoc, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 9, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         pnlQLHocVien_HeadLayout.setVerticalGroup(
@@ -1963,12 +1963,12 @@ public class main extends javax.swing.JFrame {
                 .addGroup(pnlQLHocVien_HeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lblQLHocVien_HocVien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(pnlQLHocVien_HeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(cboQLHocVien_ChuyenDe, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblQLHocVien_ChuyenDe, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlQLHocVien_HeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lblQLHocVien_NguoiHoc, javax.swing.GroupLayout.DEFAULT_SIZE, 63, Short.MAX_VALUE)
                         .addComponent(cboQLHocVien_KhoaHoc, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblQLHocVien_KhoaHoc, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(pnlQLHocVien_HeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cboQLHocVien_ChuyenDe, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblQLHocVien_ChuyenDe, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addComponent(lblQLHocVien_KhoaHoc, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
 
         pnlQLHocVien_Body.setBackground(new java.awt.Color(255, 255, 255));
@@ -2028,11 +2028,11 @@ public class main extends javax.swing.JFrame {
                 .addComponent(lbl5A_TimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(txt5A_TimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 740, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(158, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlQLHocVien_HocVienLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(pnlQLHocVien_HocVienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(scr5A, javax.swing.GroupLayout.PREFERRED_SIZE, 1102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(scr5A, javax.swing.GroupLayout.PREFERRED_SIZE, 1108, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pnlQLHocVien_HocVienLayout.createSequentialGroup()
                         .addComponent(btn5A_Xoa, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -2142,10 +2142,10 @@ public class main extends javax.swing.JFrame {
             pnlQLHocVien_5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlQLHocVien_5Layout.createSequentialGroup()
                 .addGap(90, 90, 90)
-                .addGroup(pnlQLHocVien_5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(pnlQLHocVien_Head, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnlQLHocVien_Body, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(54, 54, 54))
+                .addGroup(pnlQLHocVien_5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pnlQLHocVien_Head, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pnlQLHocVien_Body, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
         pnlQLHocVien_5Layout.setVerticalGroup(
             pnlQLHocVien_5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
