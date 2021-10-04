@@ -56,7 +56,7 @@ public class NhanVienDAO implements WolvesEduDAO<NhanVien, String>{
                 // Trả kết quả
                 while (ketQua.next()) {
                     // Đối tượng chuyên đề
-                    NhanVien doiTuong = new NhanVien(ketQua.getString(1), ketQua.getString(2), ketQua.getString(3), DateHelper.toString(ketQua.getDate(5), ""), ketQua.getString(5), ketQua.getString(6), ketQua.getString(7), ImageHelper.byteToImage(ketQua.getBytes(8)), ketQua.getString(9), ketQua.getString(10), ketQua.getString(11));
+                    NhanVien doiTuong = new NhanVien(ketQua.getString(1), ketQua.getString(2), ketQua.getString(3), DateHelper.toString(ketQua.getDate(5), "dd-MM-yyyy''"), ketQua.getString(5), ketQua.getString(6), ketQua.getString(7), ImageHelper.byteToImage(ketQua.getBytes(8)), ketQua.getString(9), ketQua.getString(10), ketQua.getString(11));
                     
                     // Thêm vào list tạm
                     list.add(doiTuong);
@@ -71,21 +71,31 @@ public class NhanVienDAO implements WolvesEduDAO<NhanVien, String>{
     }
 
     @Override
-    public void insert(NhanVien doiTuongMoi) {
+    public void insert(NhanVien doiTuongMoi, String linkAnh) {
         String sql = "INSERT INTO NhanVien(MANHANVIEN, HOTEN, GIOITINH, NGAYSINH, SDT, EMAIL, DIACHI,ANH, CCCD, CHUCVU, MATKHAU) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
-        JDBCHelper.updateSQL(sql, doiTuongMoi.getMaNhanVien(), doiTuongMoi.getHoTen(), doiTuongMoi.getGioiTinh(), doiTuongMoi.getNgaySinh(), doiTuongMoi.getSdt(), doiTuongMoi.getEmail(), doiTuongMoi.getDiaChi(), doiTuongMoi.getAnh(), doiTuongMoi.getCCCD(), doiTuongMoi.getChucVu(), doiTuongMoi.getMatKhau());
+        JDBCHelper.updateSQL(sql, doiTuongMoi.getMaNhanVien(), doiTuongMoi.getHoTen(), doiTuongMoi.getGioiTinh(), DateHelper.toDate(doiTuongMoi.getNgaySinh(), "dd-MM-yyyy"), doiTuongMoi.getSdt(), doiTuongMoi.getEmail(), doiTuongMoi.getDiaChi(), ImageHelper.imageToByte(linkAnh), doiTuongMoi.getCCCD(), doiTuongMoi.getChucVu(), doiTuongMoi.getMatKhau());
     }
 
     @Override
-    public void update(NhanVien doiTuongCapNhat, String ma) {
+    public void update(NhanVien doiTuongCapNhat, String ma, String linkAnh) {
         String sql = "UPDATE NhanVien SET HOTEN = ?, GIOITINH = ?, NGAYSINH = ?, SDT = ?, EMAIL = ?, DIACHI = ?, ANH = ?, CCCD= ?, CHUCVU = ?, MATKHAU = ? WHERE MANHANVIEN = ?";
-        JDBCHelper.updateSQL(sql, doiTuongCapNhat.getHoTen(), doiTuongCapNhat.getGioiTinh(), doiTuongCapNhat.getNgaySinh(), doiTuongCapNhat.getSdt(), doiTuongCapNhat.getEmail(), doiTuongCapNhat.getDiaChi(), doiTuongCapNhat.getAnh(), doiTuongCapNhat.getAnh(), doiTuongCapNhat.getCCCD(), doiTuongCapNhat.getChucVu(), doiTuongCapNhat.getMatKhau(), doiTuongCapNhat.getMaNhanVien());
+        JDBCHelper.updateSQL(sql, doiTuongCapNhat.getHoTen(), doiTuongCapNhat.getGioiTinh(), DateHelper.toDate(doiTuongCapNhat.getNgaySinh(), "dd-MM-yyyy"), doiTuongCapNhat.getSdt(), doiTuongCapNhat.getEmail(), doiTuongCapNhat.getDiaChi(), ImageHelper.imageToByte(linkAnh), doiTuongCapNhat.getCCCD(), doiTuongCapNhat.getChucVu(), doiTuongCapNhat.getMatKhau(), doiTuongCapNhat.getMaNhanVien());
     }
 
     @Override
     public void delete(String ma) {
         String sql = "delete from NhanVien where maNhanVien = ?";
         JDBCHelper.updateSQL(sql, ma);
+    }
+
+    @Override
+    public void insert(NhanVien doiTuongMoi) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void update(NhanVien doiTuongCapNhat, String ma) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

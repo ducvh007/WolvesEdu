@@ -85,4 +85,14 @@ public class HocVienDAO implements WolvesEduDAO<HocVien, String> {
         JDBCHelper.updateSQL(sql, ma);
     }
 
+    @Override
+    public void insert(HocVien doiTuongMoi, String linkAnh) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void update(HocVien doiTuongCapNhat, String ma, String linkAnh) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

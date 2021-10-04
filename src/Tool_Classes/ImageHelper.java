@@ -29,36 +29,6 @@ public class ImageHelper {
         return anhRa;
     }
     
-    // Phương thức lưu ảnh vào thư mục src/...
-    public static Image luuAnh(String linkAnh, String luuVao) {
-                if (!linkAnh.contains("src")) {
-                    try {
-                        // Trích tên ảnh
-                        String tenAnh = linkAnh.substring(linkAnh.lastIndexOf("//")+1, linkAnh.length());
-                        
-                        // Lấy ảnh từ thư mục gốc rồi truyền vào thư mục src
-                        FileInputStream fis = new FileInputStream(linkAnh);
-                        FileOutputStream fos = new FileOutputStream(luuVao +tenAnh); //luuVao = src/../../ (kết thúc bằng dấu /)
-                        BufferedInputStream bis = new BufferedInputStream(fis);
-                        BufferedOutputStream bos = new BufferedOutputStream(fos);
-                        
-                        // Đọc dữ liệu nhị phân đến khi hết
-                        int checkAnh = 0;
-                        while(checkAnh !=-1){
-                            checkAnh = bis.read();
-                            bos.write(checkAnh);
-                        }
-                        
-                        // Đóng luồngs
-                        bis.close(); bos.close();
-                        fis.close(); fos.close();
-                        
-                        return new ImageIcon(luuVao +tenAnh).getImage();
-                    } catch (Exception e) { }
-                }
-                return new ImageIcon(linkAnh).getImage();
-    }
-    
     // Phương thức chuyển kiểu ảnh thành byte[]
     public static byte[] imageToByte(String linkAnh) {
         try {

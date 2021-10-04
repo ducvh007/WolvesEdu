@@ -53,7 +53,7 @@ public class KhoaHocDAO implements WolvesEduDAO<KhoaHoc, String>{
                 // Trả kết quả
                 while (ketQua.next()) {
                     // Đối tượng chuyên đề
-                    KhoaHoc doiTuong = new KhoaHoc(ketQua.getString(1), ketQua.getString(2), ketQua.getFloat(3), ketQua.getInt(4), DateHelper.toString(ketQua.getDate(5), ""), ketQua.getString(6), DateHelper.toString(ketQua.getDate(7), ""), ketQua.getString(8));
+                    KhoaHoc doiTuong = new KhoaHoc(ketQua.getString(1), ketQua.getString(2), ketQua.getFloat(3), ketQua.getInt(4), DateHelper.toString(ketQua.getDate(5), "dd-MM-yyyy"), ketQua.getString(6), DateHelper.toString(ketQua.getDate(7), "dd-MM-yyyy"), ketQua.getString(8));
                     
                     // Thêm vào list tạm
                     list.add(doiTuong);
@@ -68,15 +68,15 @@ public class KhoaHocDAO implements WolvesEduDAO<KhoaHoc, String>{
     }
 
     @Override
-    public void insert(KhoaHoc moi) {
+    public void insert(KhoaHoc doiTuongMoi) {
         String sql = "INSERT INTO KhoaHoc(MAKHOAHOC, MACHUYENDE, HOCPHI, THOILUONG, NGAYKHAIGIANG, NGUOITAO, NGAYTAO, GHICHU) VALUES (?,?,?,?,?,?,?,?)";
-        JDBCHelper.updateSQL(sql, moi.getMaKhoaHoc(), moi.getMaChuyenDe(), moi.getHocPhi(), moi.getThoiLuong(), moi.getNgayKhaiGiang(), moi.getNguoiTao(), moi.getNguoiTao(), moi.getGhiChu());
+        JDBCHelper.updateSQL(sql, doiTuongMoi.getMaKhoaHoc(), doiTuongMoi.getMaChuyenDe(), doiTuongMoi.getHocPhi(), doiTuongMoi.getThoiLuong(), DateHelper.toDate(doiTuongMoi.getNgayKhaiGiang(), "dd-MM-yyyy"), doiTuongMoi.getNguoiTao(), DateHelper.toDate(doiTuongMoi.getNgayTao(), "dd-MM-yyyy"), doiTuongMoi.getGhiChu());
     }
 
     @Override
-    public void update(KhoaHoc capNhat, String ma) {
+    public void update(KhoaHoc doiTuongCapNhat, String ma) {
         String sql = "UPDATE KHOAHOC SET MaChuyenDe = ?, Hocphi = ?, Thoiluong = ?, NgayKhaiGiang = ?, GhiChu = ?, NguoiTao = ?, NgayTao = ? WHERE MaKhoaHoc = ?";
-        JDBCHelper.updateSQL(sql, capNhat.getMaChuyenDe(), capNhat.getHocPhi(), capNhat.getThoiLuong(), capNhat.getNgayKhaiGiang(), capNhat.getGhiChu(), capNhat.getNguoiTao(), capNhat.getNgayTao(),capNhat.getMaKhoaHoc());
+        JDBCHelper.updateSQL(sql, doiTuongCapNhat.getMaChuyenDe(), doiTuongCapNhat.getHocPhi(), doiTuongCapNhat.getThoiLuong(), DateHelper.toDate(doiTuongCapNhat.getNgayKhaiGiang(), "dd-MM-yyyy"), doiTuongCapNhat.getGhiChu(), doiTuongCapNhat.getNguoiTao(), DateHelper.toDate(doiTuongCapNhat.getNgayTao(), "dd-MM-yyyy"),doiTuongCapNhat.getMaKhoaHoc());
     }
 
     @Override
@@ -84,4 +84,15 @@ public class KhoaHocDAO implements WolvesEduDAO<KhoaHoc, String>{
         String sql = "delete from KhoaHoc where makhoahoc = ?";
         JDBCHelper.updateSQL(sql, ma);
     }
+
+    @Override
+    public void insert(KhoaHoc doiTuongMoi, String linkAnh) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void update(KhoaHoc doiTuongdoiTuongCapNhat, String ma, String linkAnh) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
 }

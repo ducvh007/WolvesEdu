@@ -68,21 +68,31 @@ public class ChuyenDeDAO implements WolvesEduDAO<ChuyenDe, String>{
     }
 
     @Override
-    public void insert(ChuyenDe doiTuongMoi) {
+    public void insert(ChuyenDe doiTuongMoi, String linkAnh) {
         String sql = "INSERT INTO CHUYENDE(MACHUYENDE, TENCHUYENDE, HOCPHI, THOILUONG, HINH , MOTA) VALUES (?,?,?,?,?,?)";
         JDBCHelper.updateSQL(sql, doiTuongMoi.getMaChuyenDe(), doiTuongMoi.getTenChuyenDe(), doiTuongMoi.getHocPhi(), doiTuongMoi.getThoiLuong(), doiTuongMoi.getAnh(), doiTuongMoi.getMoTa());
     }
 
     @Override
-    public void update(ChuyenDe doiTuongCapNhat, String ma) {
+    public void update(ChuyenDe doiTuongCapNhat, String ma, String linkAnh) {
         String sql = "UPDATE CHUYENDE SET TENCHUYENDE = ? , HOCPHI = ?, THOILUONG = ?, HINH = ?, MOTA = ? WHERE MACHUYENDE = ?";
-        JDBCHelper.updateSQL(sql, doiTuongCapNhat.getTenChuyenDe(), doiTuongCapNhat.getHocPhi(), doiTuongCapNhat.getThoiLuong(), doiTuongCapNhat.getAnh(), doiTuongCapNhat.getMoTa(), doiTuongCapNhat.getMaChuyenDe());
+        JDBCHelper.updateSQL(sql, doiTuongCapNhat.getTenChuyenDe(), doiTuongCapNhat.getHocPhi(), doiTuongCapNhat.getThoiLuong(), ImageHelper.imageToByte(linkAnh), doiTuongCapNhat.getMoTa(), doiTuongCapNhat.getMaChuyenDe());
     }
 
     @Override
     public void delete(String ma) {
         String sql = "delete from chuyende where machuyende = ?";
         JDBCHelper.updateSQL(sql, ma);
+    }
+
+    @Override
+    public void insert(ChuyenDe doiTuongMoi) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void update(ChuyenDe doiTuongCapNhat, String ma) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
