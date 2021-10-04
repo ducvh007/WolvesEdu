@@ -69,14 +69,14 @@ public class KhoaHocDAO implements WolvesEduDAO<KhoaHoc, String>{
 
     @Override
     public void insert(KhoaHoc moi) {
-        String sql = "INSERT INTO KhoaHoc VALUES (?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO KhoaHoc(MAKHOAHOC, MACHUYENDE, HOCPHI, THOILUONG, NGAYKHAIGIANG, NGUOITAO, NGAYTAO, GHICHU) VALUES (?,?,?,?,?,?,?,?)";
         JDBCHelper.updateSQL(sql, moi.getMaKhoaHoc(), moi.getMaChuyenDe(), moi.getHocPhi(), moi.getThoiLuong(), moi.getNgayKhaiGiang(), moi.getNguoiTao(), moi.getNguoiTao(), moi.getGhiChu());
     }
 
     @Override
     public void update(KhoaHoc capNhat, String ma) {
         String sql = "UPDATE KHOAHOC SET MaChuyenDe = ?, Hocphi = ?, Thoiluong = ?, NgayKhaiGiang = ?, GhiChu = ?, NguoiTao = ?, NgayTao = ? WHERE MaKhoaHoc = ?";
-        JDBCHelper.updateSQL(sql, capNhat.getMaChuyenDe(), capNhat.getHocPhi(), capNhat.getThoiLuong(), capNhat.getNgayKhaiGiang(), capNhat.getGhiChu(), capNhat.getNguoiTao(), capNhat.getNgayTao());
+        JDBCHelper.updateSQL(sql, capNhat.getMaChuyenDe(), capNhat.getHocPhi(), capNhat.getThoiLuong(), capNhat.getNgayKhaiGiang(), capNhat.getGhiChu(), capNhat.getNguoiTao(), capNhat.getNgayTao(),capNhat.getMaKhoaHoc());
     }
 
     @Override
